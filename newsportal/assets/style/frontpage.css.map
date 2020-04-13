@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,KAAK,EAAG,KAAK;CAChB;;AAED,AAAA,CAAC,CAAC;EACE,MAAM,EAAG,GAAG;CACf;;AACD,AAAA,UAAU,CAAC;EACP,OAAO,EAAE,GAAG;EACZ,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "frontpage.scss"
+    ],
+    "names": [],
+    "file": "frontpage.css"
+}
