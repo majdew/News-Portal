@@ -92,7 +92,7 @@
 				>
 					<h6 class="card-title text-center p-2">Most Viewed</h6>
 					<img
-						src="./../assets/images/200401135051-hong-kong-farm-large-tease.jpeg"
+						src="./../assets/images/http___cdn.cnn.com_cnnnext_dam_assets_200413151653-01-france-ejection-investigation"
 						class="card-img-top"
 						alt="..."
 					/>
