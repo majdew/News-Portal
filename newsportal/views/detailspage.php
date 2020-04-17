@@ -31,7 +31,7 @@ $new = mysqli_fetch_array($result);
             <p class="card-text p-2">
                 <?php echo $title; ?>
             </p>
-            <img class="card-img-top" src="./../assets/images/<?php echo $imageTitle; ?>" alt="Card image cap" />
+            <img class="card-img-top" src="./../assets/images/<?php echo $imageTitle; ?>" alt="" />
             <p class="card-text p-2">
                 <?php echo $body; ?>
             </p>

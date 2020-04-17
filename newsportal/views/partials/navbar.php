@@ -22,7 +22,9 @@
 		<form class="form-inline mr-auto">
 			<input class="form-control mr-sm-2 border border-danger" type="search" placeholder="Search" aria-label="Search" />
 			<button class="btn my-2 my-sm-0 border border-danger" type="submit">
-				<i class="fas fa-search"></i>
+				<i>
+					<img src="./../assets/icons/search.png" alt="" width="20px" height="20px" />
+				</i>
 			</button>
 		</form>
 	</ul>

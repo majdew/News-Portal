@@ -29,84 +29,62 @@
 		<?php
 		$query = "SELECT * FROM news ORDER BY dateposted DESC LIMIT 9 ";
 		$result = mysqli_query($connection, $query);
-		$row = mysqli_fetch_array($result);
+		$new1 = mysqli_fetch_array($result);
+		$new2 = mysqli_fetch_array($result);
+		$new3 = mysqli_fetch_array($result);
+		$new4 = mysqli_fetch_array($result);
+		$new5 = mysqli_fetch_array($result);
+		$new6 = mysqli_fetch_array($result);
+		$new7 = mysqli_fetch_array($result);
+		$new8 = mysqli_fetch_array($result);
+		$new9 = mysqli_fetch_array($result);
 		?>
 		<div class="d-flex border border-danger flex-column">
 			<div class="d-flex">
 				<div class="flex-column border-bottom border-danger md-2">
 					<div class="p-2 d-flex border-bottom border-light">
 						<p class="p-2" style="width: 15rem; height: 5rem;">
-							<?php echo $row['title']; ?>
-							<a href='./detailspage.php?id=<?php echo $row[0]; ?>'>...</a>
+							<?php echo $new2['title']; ?>
+							<a href='./detailspage.php?id=<?php echo $new2[0]; ?>'>...</a>
 						</p>
-						<img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
+						<img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $new2[4]; ?>" alt="" />
 					</div>
-					<?php
-					$row = mysqli_fetch_array($result);
-					?>
 					<div class="p-2 d-flex border-bottom border-light">
 						<p class="p-2" style="width: 15rem; height: 5rem;">
-							<?php echo $row['title']; ?>
-							<a href='./detailspage.php?id=<?php echo $row[0]; ?>'>...</a>
+							<?php echo $new3['title']; ?>
+							<a href='./detailspage.php?id=<?php echo $new3[0]; ?>'>...</a>
 						</p>
-						<img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
+						<img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $new3[4]; ?>" alt="" />
 					</div>
-					<?php
-					$row = mysqli_fetch_array($result);
-
-					?>
 					<div class="p-2 d-flex border-bottom border-light">
 						<p class="p-2" style="width: 15rem; height: 5rem;">
-							<?php echo $row['title']; ?>
-							<a href='./detailspage.php?id=<?php echo $row[0]; ?>'>...</a>
+							<?php echo $new4['title']; ?>
+							<a href='./detailspage.php?id=<?php echo $new4[0]; ?>'>...</a>
 						</p>
-						<img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
+						<img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $new4[4]; ?>" alt="" />
 					</div>
-					<?php
-					$row = mysqli_fetch_array($result);
-					?>
 					<div class="p-2 d-flex border-bottom border-light">
 						<p class="p-2" style="width: 15rem;">
-							<?php echo $row['title']; ?>
-							<a href='./detailspage.php?id=<?php echo $row[0]; ?>'>...</a>
+							<?php echo $new5['title']; ?>
+							<a href='./detailspage.php?id=<?php echo $new5[0]; ?>'>...</a>
 						</p>
-						<img class="ml-auto" style="width: 5rem;" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
+						<img class="ml-auto" style="width: 5rem;" src="./../assets/images/<?php echo $new5[4]; ?>" alt="" />
 					</div>
 				</div>
-				<?php
-				$row = mysqli_fetch_array($result);
-				?>
 				<div class="flex-column p-2 " style="width: 35rem;">
-					<img class="card-img-top" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
+					<img class="card-img-top" src="./../assets/images/<?php echo $new1[4]; ?>" alt="" />
 					<p class="card-text p-2">
-						<?php echo $row['title']; ?>
-						<a href='./detailspage.php?id=<?php echo $row[0]; ?>'>...</a>
+						<?php echo $new1['title']; ?>
+						<a href='./detailspage.php?id=<?php echo $new1[0]; ?>'>...</a>
 					</p>
 				</div>
 
 			</div>
 			<div class="d-flex flex-row m-auto">
-				<?php
-				$row = mysqli_fetch_array($result);
-				?>
-
-				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
-
-				<?php
-				$row = mysqli_fetch_array($result);
-				?>
-
-				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
-				<?php
-				$row = mysqli_fetch_array($result);
-				?>
-
-				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
-				<?php
-				$row = mysqli_fetch_array($result);
-				?>
-
-				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $row[4]; ?>" alt="Card image cap" />
+				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new6[4]; ?>" alt="" />
+				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new7[4]; ?>" alt="" />
+				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new8[4]; ?>" alt="" />
+				<img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new9[4]; ?>" alt="" />
 			</div>
 		</div>
 	</div>
