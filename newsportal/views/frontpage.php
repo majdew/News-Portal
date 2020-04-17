@@ -23,51 +23,7 @@
 	</head>
 	<body>
 		<?php require "./../services/connection.php" ; ?>
-		<nav class="navbar navbar-expand-lg">
-			<a class="navbar-brand" href="#">
-				<img
-					src="./../assets/images/sky-news-logo.png"
-					alt=""
-					width="200px"
-					height="50px"
-				/>
-			</a>
-		</nav>
-		<nav
-			class="navbar second-nav navbar-expand-lg border-bottom border-danger"
-		>
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link font-weight-bold" href="#"
-						>Home <span class="sr-only">(current)</span></a
-					>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link font-weight-bold" href="#"
-						>Important news</a
-					>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link font-weight-bold" href="#">Global</a>
-				</li>
-			</ul>
-			<ul class="navbar-nav ml-auto">
-				<form class="form-inline mr-auto">
-					<input
-						class="form-control mr-sm-2 border border-danger"
-						type="search"
-						placeholder="Search"
-						aria-label="Search"
-					/>
-					<button
-						class="btn my-2 my-sm-0 border border-danger"
-						type="submit"
-					>
-						<i class="fas fa-search"></i>
-					</button>
-				</form>
-			</ul>
-		</nav>
+		<?php require "./partialviews/navbar.php" ; ?>
 		<div class="d-flex flex-row p-2">
 			<div class="flex-column d-flex" style="width: 25rem;">
 				<div
@@ -106,7 +62,8 @@
 			<?php
         		$query = "SELECT * FROM news ORDER BY dateposted DESC LIMIT 9 ";
 				$result = mysqli_query($connection , $query);  
-        		$row = mysqli_fetch_array($result);
+				$row = mysqli_fetch_array($result);
+				$id = $row[0];
     		?>
 			<div class="d-flex border border-danger flex-column">
 				<div class="d-flex">
@@ -114,7 +71,7 @@
 						<div class="p-2 d-flex border-bottom border-light">
 							<p class="p-2" style="width: 15rem; height: 5rem;">
 								<?php echo $row['title'] ; ?> 
-								<a href="">...</a>
+								<a href='./detailspage.php?id=<?php echo$row[0] ; ?>'  >...</a>
 							</p>
 							<img
 								class="ml-auto"
@@ -139,7 +96,8 @@
 							/>
 						</div>
 						<?php
-						    $row = mysqli_fetch_array($result);
+							$row = mysqli_fetch_array($result);
+							
     					?>
 						<div class="p-2 d-flex border-bottom border-light">
 							<p class="p-2" style="width: 15rem; height: 5rem;">
