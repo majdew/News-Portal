@@ -1,29 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://kit.fontawesome.com/67107e9e71.js"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.min.js"
-			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-			crossorigin="anonymous"
-		></script>
-		<link rel="stylesheet" href="./../assets/style/frontpage.css" />
-		<title>News</title>
-	</head>
+	<?php require "./partials/head.php" ; ?>
 	<body>
 		<?php require "./../services/connection.php" ; ?>
-		<?php require "./partialviews/navbar.php" ; ?>
+		<?php require "./partials/navbar.php" ; ?>
 		<div class="d-flex flex-row p-2">
 			<div class="flex-column d-flex" style="width: 25rem;">
 				<div
@@ -63,7 +43,6 @@
         		$query = "SELECT * FROM news ORDER BY dateposted DESC LIMIT 9 ";
 				$result = mysqli_query($connection , $query);  
 				$row = mysqli_fetch_array($result);
-				$id = $row[0];
     		?>
 			<div class="d-flex border border-danger flex-column">
 				<div class="d-flex">
@@ -86,7 +65,7 @@
 						<div class="p-2 d-flex border-bottom border-light">
 							<p class="p-2" style="width: 15rem; height: 5rem;">
 								<?php echo $row['title'] ; ?>
-								<a href="">...</a>
+								<a href='./detailspage.php?id=<?php echo$row[0] ; ?>'  >...</a>
 							</p>
 							<img
 								class="ml-auto"
@@ -102,7 +81,7 @@
 						<div class="p-2 d-flex border-bottom border-light">
 							<p class="p-2" style="width: 15rem; height: 5rem;">
 								<?php echo $row['title'] ; ?>
-								<a href="">...</a>
+								<a href='./detailspage.php?id=<?php echo$row[0] ; ?>'  >...</a>
 							</p>
 							<img
 								class="ml-auto"
@@ -117,7 +96,7 @@
 						<div class="p-2 d-flex border-bottom border-light">
 							<p class="p-2" style="width: 15rem;">
 								<?php echo $row['title'] ; ?>
-								<a href="">...</a>
+								<a href='./detailspage.php?id=<?php echo$row[0] ; ?>'  >...</a>
 							</p>
 							<img
 								class="ml-auto"
@@ -138,7 +117,7 @@
 						/>
 					<p class="card-text p-2">
 						<?php echo $row['title'] ; ?>
-						<a href="">...</a>
+						<a href='./detailspage.php?id=<?php echo$row[0] ; ?>'  >...</a>
 					</p>
 					</div>
 
