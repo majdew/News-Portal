@@ -1,17 +1,43 @@
+* {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .nav-link {
-	color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+}
+
+a:hover {
+  color: red;
 }
 
 p {
-	margin: 0px;
+  margin: 0px;
+}
+
+.search {
+  cursor: pointer;
+}
+
+.second-nav {
+  background-color: black;
 }
 
 .card-body {
-	padding: 5px;
-	font-size: 15px;
+  padding: 5px;
+  font-size: 15px;
 }
 
 img {
-	cursor: pointer !important;
+  cursor: pointer;
 }
 /*# sourceMappingURL=frontpage.css.map */

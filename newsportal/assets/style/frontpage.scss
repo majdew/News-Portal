@@ -1,9 +1,32 @@
+* {
+	font-family: 'Times New Roman', Times, serif;
+}
 .nav-link {
+	color: white;
+	&:hover {
+		color: red;
+	}
+	cursor: pointer;
+}
+
+a {
 	color: black;
+	&:hover {
+		color: red;
+	}
+	cursor: pointer;
 }
 
 p {
 	margin: 0px;
+}
+
+.search {
+	cursor: pointer;
+}
+
+.second-nav {
+	background-color: black;
 }
 
 .card-body {
