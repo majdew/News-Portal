@@ -11,7 +11,7 @@
 				<h6 class="card-title text-center p-2 font-weight-bold">Most Commented</h6>
 				<img src="./../assets/images/200401135051-hong-kong-farm-large-tease.jpeg" class="card-img-top" alt="..." />
 				<div class="card-body">
-					<p class="card-text">
+					<p class="card-text text-center">
 						Some quick text to build on the card
 					</p>
 				</div>
