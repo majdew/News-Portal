@@ -1,45 +1,9 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#563d7c">
-
-    <title>Admin Panel</title>
-    <!-- Custom styles for this template -->
-    <link href="./../assets/style/dashboard.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-</head>
+<?php require "./partials/head.php" ?>
 
 <body>
-    <nav class="navbar second-nav bg-dark  navbar-expand-lg border border-light ">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link " href="./frontpage.php">
-                        Home
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <form class="form-inline mr-auto">
-                    <input class="form-control mr-sm-2 border border-light" type="search" placeholder="Search for news ..." aria-label="Search" />
-                    <button class="btn my-2 my-sm-0" type="submit">
-                        <i>
-                            <img class="search" src="./../assets/icons/pinpng.com-searchicon-png-773069.png" alt="new" width="20px" height="20px" />
-                        </i>
-                    </button>
-                </form>
-            </ul>
-        </div>
-    </nav>
     <div class="container-fluid">
         <div class="row">
             <?php require "./partials/sidebar.php"; ?>
@@ -68,7 +32,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="borde bg-light rounded border-dark p-2 " style="width: 15rem;">
+                    <div class="border bg-light rounded border-dark p-2 " style="width: 15rem;">
                         <div class="text-center ">
                             <h2 class="card-title font-italic">All users</h2>
                             <h2>5</h2>

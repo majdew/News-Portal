@@ -2,11 +2,11 @@
     <div class="border user  bg-dark rounded border-light p-2 mt-2">
         <div class="text-center ">
             <img class=" align-middle" src="./../assets/icons/boy.png" />
-            <p class="card-title font-italic">Majd Ewawi</p>
+            <p class="card-title">Majd Ewawi</p>
             <h6 class="card-text email">majd1999ziad@gmail.com</h6>
-            <p class="font-italic">
+            <p >
                 logout
-                <i><img src="./../assets/icons/kindpng_3120754.png" width="20px" height="14px" /></i>
+                <i><img src="./../assets/icons/logout.png"/></i>
             </p>
         </div>
     </div>
