@@ -5,7 +5,7 @@
 
 <body style="height:100vh" class="d-flex flex-column  justify-content-center">
 
-	<form class="form-signin d-flex flex-column  justify-content-around" action="./../services/auth.php" method="post" style="height:80vh">
+	<form class="form-signin d-flex flex-column  justify-content-around" action="./../../services/auth.php" method="post" style="height:80vh">
 		<div class="text-center mb-4">
 			<img class="mb-4" src="./../../assets/icons/sky-news-logo.png" width="300" height="100">
 			<h1 class="h3 mb-3 font-weight-normal">please sign in</h1>

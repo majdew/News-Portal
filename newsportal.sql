@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 17, 2020 at 10:35 PM
+-- Generation Time: Apr 22, 2020 at 08:29 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -112,14 +112,24 @@ CREATE TABLE IF NOT EXISTS `newsimages` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(4) NOT NULL,
+  `id` int(4) NOT NULL AUTO_INCREMENT,
   `name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `roleId` int(1) NOT NULL,
   `image` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `roleId`, `image`, `password`) VALUES
+(1, 'Majd Ewawi', 'majd1999ziad@gmail.com', 0, 'boy.png', '123456'),
+(2, 'Writer', 'writer@gmail.com', 2, 'boy.png', '123456'),
+(3, 'Editor', 'editor@gmail.com', 1, 'boy.png', '123456');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
