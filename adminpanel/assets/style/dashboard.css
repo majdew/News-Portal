@@ -10,16 +10,21 @@
   color: black;
 }
 
-img {
-	cursor : pointer !;
-}
-
 .email {
   font-size: 12px;
 }
 
 .user {
   font-family: 'Lucida Console', Courier, monospace;
+  color: white;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+a .logout {
   color: white;
 }
 /*# sourceMappingURL=dashboard.css.map */

@@ -15,7 +15,9 @@ $user = mysqli_fetch_array($result);
 if ($user) {
     $_SESSION['username'] = $username;
     $_SESSION['role'] = $user['roleId'];
-    header("location:./../views/dashboard.php");
+    $_SESSION['name'] = $user['name'];
+    $_SESSION['image'] = $user['image'];
+    header("location:./../views/mainviews/dashboard.php");
 } else {
-    header("location:./../views/signin.php?error=1");
+    header("location:./../views/mainviews/signin.php?error=1");
 }
