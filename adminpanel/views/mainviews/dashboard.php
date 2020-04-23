@@ -28,7 +28,7 @@
                             <h2 class="card-title font-italic">All news</h2>
                             <h2>100</h2>
                             <p class="font-italic">
-                                <i><img src="./../../assets/icons/news.png" width="50px" height="50px" /></i>
+                                <img src="./../../assets/icons/big/news.png" />
                             </p>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             <h2 class="card-title font-italic">All users</h2>
                             <h2>5</h2>
                             <p class="font-italic">
-                                <i><img src="./../../assets/icons/team.png" width="50px" height="50px" /></i>
+                                <img src="./../../assets/icons/big/team.png" />
                             </p>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                             <h2 class="card-title font-italic">Views</h2>
                             <h2>1000</h2>
                             <p class="font-italic">
-                                <i><img src="./../../assets/icons/news.png" width="50px" height="50px" /></i>
+                                <img src="./../../assets/icons/big/eye.png" />
                             </p>
                         </div>
                     </div>

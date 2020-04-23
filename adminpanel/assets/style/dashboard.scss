@@ -24,6 +24,9 @@ a {
 	cursor: pointer;
 	text-decoration: none !important;
 	.logout {
-		color : white;
+		color: white;
+		&:hover {
+			color: rgb(0, 255, 255) !important;
+		}
 	}
 }

@@ -16,20 +16,29 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Number</th>
-                                <th>Title</th>
-                                <th>image </th>
-                                <th>options</th>
-                                <th>Header</th>
+                                <th>Name</th>
+                                <th>Email </th>
+                                <th>Image</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Integer</td>
-                                <td>nec</td>
-                                <td>odio</td>
-                                <td>Praesent</td>
-                            </tr>
+                            <?php
+                            $query = "SELECT * FROM users";
+                            $result = mysqli_query($connection, $query);
+                            $count = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $count++;
+                            ?>
+                                <tr>
+                                    <td><?php echo $count; ?></td>
+                                    <td> <?php echo $row['name']; ?></td>
+                                    <td> <?php echo $row['email']; ?></td>
+                                    <td>
+                                        <img class=" align-middle" src="./../../assets/icons/<?php echo $row['image']; ?>" width="30px" height="30px" />
+                                    </td>
+
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

@@ -16,21 +16,31 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Number</th>
-                                <th>Title</th>
-                                <th>image </th>
-                                <th>options</th>
-                                <th>Header</th>
+                                <th>name</th>
+                                <?php if ($roleId == 0) { ?>
+                                    <th>options</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Integer</td>
-                                <td>nec</td>
-                                <td>odio</td>
-                                <td>Praesent</td>
-                            </tr>
-   
+                            <?php
+                            $query = "SELECT * FROM categories";
+                            $result = mysqli_query($connection, $query);
+                            $count = 0;
+                            while ($row = mysqli_fetch_array($result)) {
+                                $count++;
+                            ?>
+                                <tr>
+                                    <td><?php echo $count; ?></td>
+                                    <td> <?php echo $row['name']; ?></td>
+                                    <td>
+                                        <?php if ($roleId == 0) { ?>
+                                            <a href="./editnews.php"> <img src="./../../assets/icons/pencil.png" /></a>
+                                            <a href="./deletenews.php"> <img src="./../../assets/icons/rubbish.png" /></a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

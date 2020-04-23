@@ -27,4 +27,8 @@ a {
 a .logout {
   color: white;
 }
+
+a .logout:hover {
+  color: cyan !important;
+}
 /*# sourceMappingURL=dashboard.css.map */

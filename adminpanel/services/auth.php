@@ -14,7 +14,7 @@ $user = mysqli_fetch_array($result);
 
 if ($user) {
     $_SESSION['username'] = $username;
-    $_SESSION['role'] = $user['roleId'];
+    $_SESSION['roleId'] = $user['roleId'];
     $_SESSION['name'] = $user['name'];
     $_SESSION['image'] = $user['image'];
     header("location:./../views/mainviews/dashboard.php");
