@@ -22,7 +22,7 @@
 			<input type="password" class="form-control col-4" placeholder="Password" name="password" required>
 
 		</div>
-		<div class=" row text-center d-flex justify-content-center">
+		<div class=" row text-center text-danger d-flex justify-content-center">
 			<?php
 
 			if (isset($_GET['error'])) {

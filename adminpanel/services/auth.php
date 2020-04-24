@@ -17,6 +17,8 @@ if ($user) {
     $_SESSION['roleId'] = $user['roleId'];
     $_SESSION['name'] = $user['name'];
     $_SESSION['image'] = $user['image'];
+    $_SESSION['id'] = $user['id'];
+
     header("location:./../views/mainviews/dashboard.php");
 } else {
     header("location:./../views/mainviews/signin.php?error=1");
