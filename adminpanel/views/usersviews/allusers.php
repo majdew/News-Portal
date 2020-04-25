@@ -20,6 +20,7 @@
                                 <th>Name</th>
                                 <th>Email </th>
                                 <th>Image</th>
+                                <th>Role</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
@@ -39,6 +40,10 @@
                                     <img class=" align-middle"
                                         src="./../../../images/users/<?php echo $row['image']; ?>" width="30px"
                                         height="30px" />
+                                </td>
+                                <td>
+                                    <?php if ($row['roleId'] == 2) echo "Writer"; ?>
+                                    <?php if ($row['roleId']== 1) echo "Editor"; ?>
                                 </td>
                                 <td>
                                     <a href="./adduser.php?id=<?php echo $row['id']; ?>">

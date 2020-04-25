@@ -1,6 +1,6 @@
 <?php
+
 require "./../services/connection.php";
-$id = $_SESSION['id'];
 
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
@@ -8,12 +8,17 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $roleId = $_POST['roleId'];
+    $image = $_FILES['user']['name'];
 
-
-    $query = "UPDATE users SET
-        name='$name', email='$email', password='$password' , roleId=$roleId $image = '$image'
+    if ($image) {
+        $query = "UPDATE users SET
+        name='$name', email='$email', password='$password' , roleId=$roleId ,image = '$image'
         WHERE id=$id";
-
+    } else {
+        $query = "UPDATE users SET
+        name='$name', email='$email', password='$password' , roleId=$roleId 
+        WHERE id=$id";
+    }
     $result = mysqli_query($connection, $query);
 
     if ($result) {

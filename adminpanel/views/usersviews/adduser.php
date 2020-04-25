@@ -35,8 +35,12 @@ if (isset($_GET['id'])) {
                 <div style="height:80vh" class="d-flex flex-column  justify-content-center">
 
                     <form class="form-signin d-flex flex-column  justify-content-between"
-                        action="./../../usersfunctionality/adduser.php" method="post" style="height:100vh"
-                        enctype="multipart/form-data">
+                        <?php if (isset($_GET['id'])) { ?> action="./../../usersfunctionality/updateuser.php"
+                        <?php } else { ?> action="./../../usersfunctionality/adduser.php" <?php } ?> method="post"
+                        style="height:100vh" enctype="multipart/form-data">
+
+                        <?php if (isset($_GET['id'])) { ?> <input type="text" name="id" hidden
+                            value="<?php echo $_GET['id'] ?>"><?php } ?>
 
                         <div class="form-label-group row text-center d-flex justify-content-center">
                             <label for="name" class="col-2">Name</label>
@@ -87,18 +91,22 @@ if (isset($_GET['id'])) {
 
                         <div class=" row text-center d-flex text-danger justify-content-center">
                             <?php
-
                             if (isset($_GET['error'])) {
                                 if ($_GET['error'] == 1) {
                                     echo "Invalid User Information !";
                                 }
                             }
-
                             ?>
                         </div>
                         <div class="d-flex row justify-content-center">
                             <button class="btn btn-lg btn-primary btn-block col-3 text-center" name="submit"
-                                value="Submit" type="submit">Add</button>
+                                value="Submit" type="submit">
+                                <?php if (isset($_GET['id'])) { ?>
+                                Update
+                                <?php } else { ?>
+                                Add
+                                <?php } ?>
+                            </button>
                         </div>
                     </form>
                 </div>

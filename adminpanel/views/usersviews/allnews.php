@@ -25,7 +25,10 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM news ORDER BY dateposted DESC";
+                            if ($roleId == 2)
+                                $query = "SELECT * FROM news WHERE writerId =$id ORDER BY dateposted DESC";
+                            else
+                                $query = "SELECT * FROM news ORDER BY dateposted DESC";
                             $result = mysqli_query($connection, $query);
                             $count = 0;
                             while ($row = mysqli_fetch_array($result)) {
@@ -48,8 +51,9 @@
                                     <?php } ?>
                                     <a href="./newsdetails.php?id=<?php echo $row['id']; ?>"> <img
                                             src="./../../assets/icons/eye.png" /></a>
-                                    <?php if (!$roleId == 1) { ?>
-                                    <a href="./deletenews.php"> <img src="./../../assets/icons/rubbish.png" /></a>
+                                    <?php if ($roleId == 0 || $roleId == 2) { ?>
+                                    <a href="./../../usersfunctionality/deletenews.php?id=<?php echo $row['id']; ?>">
+                                        <img src="./../../assets/icons/rubbish.png" /></a>
                                     <?php } ?>
                                 </td>
                             </tr>
