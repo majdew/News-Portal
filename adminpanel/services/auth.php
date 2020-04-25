@@ -19,7 +19,7 @@ if ($user) {
     $_SESSION['image'] = $user['image'];
     $_SESSION['id'] = $user['id'];
 
-    header("location:./../views/mainviews/dashboard.php");
+    header("location:./../views/usersviews/allnews.php");
 } else {
     header("location:./../views/mainviews/signin.php?error=1");
 }
