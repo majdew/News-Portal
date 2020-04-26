@@ -28,15 +28,6 @@ require "./../../services/connection.php";
 
         <ul class="nav flex-column">
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                <span>General</span>
-            </h6>
-            <li class="nav-item">
-                <a class="nav-link" href="./../mainviews/dashboard.php">
-                    <img class="search align-middle" src="./../../assets/icons/iconfinder_home_298794.png" />
-                    Home
-                </a>
-            </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>News</span>
             </h6>
             <li class="nav-item">
