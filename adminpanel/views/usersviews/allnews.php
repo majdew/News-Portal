@@ -55,6 +55,9 @@
                                     <a href="./../../usersfunctionality/deletenews.php?id=<?php echo $row['id']; ?>">
                                         <img src="./../../assets/icons/rubbish.png" /></a>
                                     <?php } ?>
+                                    <a href="./allcomments.php?id=<?php echo $row['id']; ?>">
+                                        <img src="./../../assets/icons/comment.png" /></a>
+
                                 </td>
                             </tr>
                             <?php } ?>
