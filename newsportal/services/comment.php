@@ -11,10 +11,10 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($connection, $query);
 
     if ($result) {
-        header("location:./../views/newsdetails.php?id=$newid");
+        header("location:./../views/detailspage.php?id=$newId");
     } else {
-        header("location:./../views/newsdetails.php?id=$newid?error=1");
+        header("location:./../views/detailspage.php?id=$newId?error=1");
     }
 } else {
-    header("location:./../views/newsdetails.php?id=$newid?error=1");
+    header("location:./../views/detailspage.php?id=$newId?error=1");
 }
