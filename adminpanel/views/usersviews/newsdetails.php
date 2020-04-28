@@ -8,8 +8,7 @@
         <div class="row">
             <?php require "./../partials/sidebar.php"; ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">News details : </h1>
                 </div>
                 <?php
@@ -39,25 +38,26 @@
                     $writer = mysqli_fetch_array($resultWriter);
 
                 ?>
-                <div class="flex-column p-3 mt-3 mb-3 border border-dark ml-auto mr-auto " style="width: 40rem;">
-                    <h5 class="card-text p-2 font-weight-bold text-center">
-                        <?php echo $title; ?> .
-                    </h5>
-                    <img class="card-img-top" src="./../../../images/news/<?php echo $imageTitle; ?>" alt="new" />
-                    <p class="card-text font-italic p-2">
-                        Writen By : <?php echo $writer[1]; ?>
-                    </p>
-                    <p class="card-text font-italic p-2">
-                        Category :
-                        <?php echo $category; ?>
-                        <?php if ($isUrgent) echo " , Urgent"; ?>
-                        <?php if ($isGlobal) echo " , Global"; ?>
+                    <div class="flex-column p-3 mt-3 mb-3 border border-dark ml-auto mr-auto " style="width: 40rem;">
+                        <h5 class="card-text p-2 font-weight-bold text-center">
+                            <?php echo $title; ?> .
+                        </h5>
+                        <img class="card-img-top" src="./../../../images/news/<?php echo $imageTitle; ?>" alt="new" />
+                        <p class="card-text font-italic p-2">
+                            Writen By : <?php echo $writer[1] . " "; ?> 
+                            [<?php echo $new['dateposted']; ?>]
+                        </p>
+                        <p class="card-text font-italic p-2">
+                            Category :
+                            <?php echo $category; ?>
+                            <?php if ($isUrgent) echo " , Urgent"; ?>
+                            <?php if ($isGlobal) echo " , Global"; ?>
 
-                    </p>
-                    <p class="card-text p-2">
-                        <?php echo $body; ?>
-                    </p>
-                </div>
+                        </p>
+                        <p class="card-text p-2">
+                            <?php echo $body; ?>
+                        </p>
+                    </div>
                 <?php
 
                 } else {
