@@ -18,9 +18,6 @@
                             <tr>
                                 <th>Number</th>
                                 <th>name</th>
-                                <?php if ($roleId == 0) { ?>
-                                <th>options</th>
-                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,12 +31,7 @@
                             <tr>
                                 <td><?php echo $count; ?></td>
                                 <td> <?php echo $row['name']; ?></td>
-                                <td>
-                                    <?php if ($roleId == 0) { ?>
-                                    <a href=""> <img src="./../../assets/icons/pencil.png" /></a>
-                                    <a href=""> <img src="./../../assets/icons/rubbish.png" /></a>
-                                    <?php } ?>
-                                </td>
+
                             </tr>
                             <?php } ?>
                         </tbody>
