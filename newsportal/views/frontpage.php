@@ -7,16 +7,7 @@
     <?php require "./partials/navbar.php"; ?>
     <div class="d-flex flex-row p-2">
         <div class="flex-column d-flex" style="width: 25rem;">
-            <div class="border border-danger p-2 flex-column" style="width: 18rem;">
-                <h6 class="card-title text-center p-2 font-weight-bold">Most Commented</h6>
-                <img src="./../assets/images/200401135051-hong-kong-farm-large-tease.jpeg" class="card-img-top"
-                    alt="..." />
-                <div class="card-body">
-                    <p class="card-text text-center">
-                        Some quick text to build on the card
-                    </p>
-                </div>
-            </div>
+            <?php require "./partials/mostcommented.php" ; ?>
             <div class="border border-danger mt-4 p-2 flex-column" style="width: 18rem;">
                 <h6 class="card-title text-center font-weight-bold p-2">Most Viewed</h6>
                 <img src="./../assets/images/http___cdn.cnn.com_cnnnext_dam_assets_200413151653-01-france-ejection-investigation"

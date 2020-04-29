@@ -40,7 +40,7 @@ $new = mysqli_fetch_array($result);
     <?php
 
     } else {
-        echo "ERROR " . mysqli_error($conn);
+        echo "ERROR " . mysqli_error($connection);
     }
     ?>
     <?php require "./commentview.php" ?>
