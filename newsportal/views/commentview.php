@@ -10,7 +10,7 @@
         <input type="text" name="newid" hidden value="<?php echo $_GET['id'] ?>">
         <?php } ?>
         <div class="form-label-group row text-center d-flex justify-content-center">
-            <input class="form-control col-4" name="comment" placeholder="Your comment ..." required autofocus>
+            <input class="form-control col-4" name="comment" placeholder="Your comment ..." required>
         </div>
 
         <div class=" row text-center text-danger d-flex justify-content-center">

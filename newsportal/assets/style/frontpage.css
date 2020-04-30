@@ -2,6 +2,12 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
+body,
+html {
+  position: relative;
+  width: 100vw;
+}
+
 .nav-link {
   color: white;
   cursor: pointer;
@@ -40,5 +46,22 @@ p {
 
 img {
   cursor: pointer;
+}
+
+.title {
+  color: white !important;
+}
+
+.nav-link {
+  text-decoration: none !important;
+}
+
+.search-result {
+  position: absolute;
+  z-index: 10;
+  left: 990px;
+  width: 20vw;
+  margin: 0px;
+  display: hidden;
 }
 /*# sourceMappingURL=frontpage.css.map */

@@ -3,7 +3,7 @@
 		<img src="./../assets/images/sky-news-logo.png" alt="new" width="200px" height="50px" />
 	</a>
 </nav>
-<nav class="navbar second-nav  navbar-expand-lg border border-danger ">
+<nav class="navbar second-nav  navbar-expand-lg ">
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
@@ -43,7 +43,17 @@
 						<img class="search" src="./../assets/icons/pinpng.com-searchicon-png-773069.png" alt="new" width="20px" height="20px" />
 					</i>
 				</button>
+
 			</form>
+
+
 		</ul>
+
 	</div>
 </nav>
+<div class="dropdown">
+	<!-- <div class="d-flex flex-column search-result dropdown-menu " id="searchResult">
+		<!-- <p><a class="dropdown-item" href=""> majd </a> </p>
+		<p><a class="dropdown-item" href=""> zaid </a> </p> -->
+	</div> -->
+</div>

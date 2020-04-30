@@ -5,6 +5,7 @@
 <body>
     <?php require "./../services/connection.php"; ?>
     <?php require "./partials/navbar.php"; ?>
+    <?php require "./partials/breakingnews.php"; ?>
     <div class="d-flex flex-row p-2">
         <div class="flex-column d-flex" style="width: 25rem;">
             <?php require "./partials/mostcommented.php"; ?>
