@@ -7,8 +7,13 @@ if (!isset($_GET['id'])) {
 }
 
 $id = $_GET['id'];
+
 $query = "SELECT * FROM news WHERE id=$id";
 $result = mysqli_query($connection, $query);
+
+$updateViewsQuery = "UPDATE news SET views= views + 1 WHERE id = $id ";
+$updateResult = mysqli_query($connection, $updateViewsQuery);
+
 $new = mysqli_fetch_array($result);
 
 ?>

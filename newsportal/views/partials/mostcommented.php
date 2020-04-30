@@ -1,8 +1,8 @@
 <div class="container border border-danger " style="width: 20rem;">
-    <h5 class="text-center h6 ">Most Commented News :</h5>
+    <h5 class="text-center h6 pt-2 ">Most Commented News :</h5>
     <div class="row">
         <?php
-        //require "./../../services/connection.php";
+
         $query = "SELECT newid , COUNT(comment) FROM newscomments GROUP BY newid ORDER BY COUNT(comment) DESC  LIMIT 4 ";
         $result = mysqli_query($connection, $query);
 
