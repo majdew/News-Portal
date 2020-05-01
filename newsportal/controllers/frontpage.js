@@ -1,23 +1,23 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     function refreshFrontPage(){
-//         let xmlhttp;
-//         if (window.XMLHttpRequest) {   // code for IE7+, Firefox, Chrome, Opera, Safari
-//             xmlhttp = new XMLHttpRequest();
-//         }
-//         else {  // code for IE6, IE5
-//             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//         }
-//         xmlhttp.onreadystatechange = function () {
-//             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//                 location.reload();
-//             }
-//         }
-//         xmlhttp.open("GET", "frontpage.php", true);
-//         xmlhttp.send();
-//     }
+$(document).ready(function () {
+	$('#search').keyup(function () {
+		let searchText = $(this).val();
 
-
-//     setInterval(() => {
-//         refreshFrontPage();
-//     }, 10000);
-// });
+		if (searchText != '') {
+			$.ajax({
+				url: './../services/search.php',
+				method: 'post',
+				data: {
+					query: searchText,
+				},
+				success: function (response) {
+					$('#showlist').html(response);
+				},
+			});
+		} else {
+			$('#showlist').html(' ');
+		}
+		$(document).on('click', 'body', function () {
+			$('#showlist').html(' ');
+		});
+	});
+});
