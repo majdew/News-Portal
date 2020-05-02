@@ -37,7 +37,7 @@
                             $pages = ceil($totalDocs / $limit);
                             $page = isset($_GET['page']) ? $_GET['page'] : $page = 1;
 
-                            if ($page > $pages || $page < 0 || !is_numeric($page))
+                            if ($page > $pages || $page <= 0 || !is_numeric($page))
                                 $page = 1;
 
                             $start = ($page - 1) * $limit;

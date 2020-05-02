@@ -41,7 +41,7 @@
                             $totalDocs = mysqli_num_rows($resultAllDocs);
                             $pages = ceil($totalDocs / $limit);
 
-                            if ($page > $pages || $page < 0 || !is_numeric($page))
+                            if ($page > $pages || $page <= 0 || !is_numeric($page))
                                 $page = 1;
 
                             $start = ($page - 1) * $limit;

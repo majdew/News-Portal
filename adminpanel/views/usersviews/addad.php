@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
 
                         <div class="form-label-group row text-center d-flex justify-content-center">
                             <label for="image" class="col-2">Image</label>
-                            <input type="file" class="form-control-file col-4" name="ad" <?php if (isset($_GET['id'])) { ?> value="./../../../images/ads/<?php echo $row['image']; ?>" <?php } ?>>
+                            <input <?php if (!isset($_GET['id'])) echo "required"; ?>type="file" class="form-control-file col-4" name="ad" <?php if (isset($_GET['id'])) { ?> value="./../../../images/ads/<?php echo $row['image']; ?>" <?php } ?>>
                         </div>
                         <div class="form-label-group text-center row d-flex justify-content-center">
                             <label for="role" class="col-2">Status</label>
@@ -52,8 +52,8 @@ if (isset($_GET['id'])) {
                                 <div class="text-center d-flex justify-content-between">
                                     <label for="active" class="col-4">Active</label>
                                     <input class="form-check-input" name="isActive" value="1" <?php if (isset($_GET['id'])) {
-                                                                                                if ($row['isActive'] == 1) echo "checked";
-                                                                                            } else { ?> checked <?php }  ?> type="radio">
+                                                                                                    if ($row['isActive'] == 1) echo "checked";
+                                                                                                } else { ?> checked <?php }  ?> type="radio">
 
                                 </div>
 
