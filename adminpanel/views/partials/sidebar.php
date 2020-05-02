@@ -21,6 +21,23 @@ require "./../../services/connection.php";
     <div class="sidebar-sticky text-center">
 
         <ul class="nav flex-column">
+            <?php if ($roleId == 0) { ?>
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>General</span>
+                </h6>
+                <li class="nav-item">
+                    <a class="nav-link" href="./../usersviews/ads.php">
+                        <img class="search align-middle" src="./../../assets/icons/tools-and-utensils.png" />
+                        Advertisement
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./../usersviews/addad.php">
+                        <img class="search align-middle" width="18px" src="./../../assets/icons/add.png" />
+                        Add Ads
+                    </a>
+                </li>
+            <?php } ?>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>News</span>
             </h6>
