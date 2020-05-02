@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php require "./../partials/head.php" ?>
+<script src="./../../controllers/allnews"></script>
 
 <body>
     <div class="container-fluid">
@@ -10,9 +11,10 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">All News : </h1>
+                    <?php require "./../partials/searchform.html"; ?>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive" id="content">
                     <table class="table text-center table-dark table-hover table-bordered table-striped table-sm ">
                         <thead class="thead-dark">
                             <tr>
@@ -22,7 +24,7 @@
                                 <th>options</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tablebody">
                             <?php
 
                             $limit = 8;
@@ -77,33 +79,7 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation d-flex justify-content-end example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="./allnews?page=<?php if ($page <= 1) echo  1;
-                                                                            else echo $page - 1 ?>" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <?php
-                            for ($i = 0; $i < $pages; $i++) {
-                            ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="./../usersviews/allnews?page=<?php echo $i + 1 ?>">
-                                        <?php echo $i + 1 ?>
-                                    </a>
-                                </li>
-                            <?php } ?>
-                            <li class="page-item ">
-                                <a class="page-link" href="./allnews?page=<?php if ($page >= $pages) echo  1;
-                                                                            else echo $page + 1 ?>" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <?php require "./../partials/pages.php"; ?>
                 </div>
 
             </main>

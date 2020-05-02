@@ -5,8 +5,9 @@ if (isset($_POST['submit'])) {
 
     $newId = $_POST['newid'];
     $comment = $_POST['comment'];
+    $escapedComment = mysqli_escape_string($comment , $connection);
 
-    $query = "INSERT INTO newscomments (newid, comment) VALUES ($newId, '$comment' )";
+    $query = "INSERT INTO newscomments (newid, comment) VALUES ($newId, '$escapedComment' )";
 
     $result = mysqli_query($connection, $query);
 

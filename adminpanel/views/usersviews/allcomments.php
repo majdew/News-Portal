@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php require "./../partials/head.php" ?>
+<script src="./../../controllers/comments.js"></script>
 
 <body>
     <div class="container-fluid">
@@ -11,17 +12,21 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
                     <h1 class="h2">All Comments : </h1>
+                    <?php require "./../partials/searchform.html"; ?>
                     <a href="./allnews" class="d-flex flex-column justify-content-center">
+
                         <span aria-hidden="true">Back</span> </a>
 
                 </div>
 
-                <div class="table-responsive">
-                    <?php
+                <?php
 
-                    if (!isset($_GET['id'])) {
-                        header("location:./allnews.php");
-                    }
+                if (!isset($_GET['id'])) {
+                    echo "he";
+                } ?>
+                <input id="newId" hidden value="<?php echo $_GET['id']; ?>">
+                <div class="table-responsive" id="content">
+                    <?php
 
                     $limit = 8;
                     if (isset($_GET['page']))
@@ -67,34 +72,10 @@
                                 } ?>
                             </tbody>
                         </table>
-                        <nav aria-label="Page navigation d-flex justify-content-end example">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="./allcomments.php?id=<?php echo $id; ?>&page=<?php if ($page <= 1) echo  1;
-                                                                                                        else echo $page - 1 ?>" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <?php
-                                for ($i = 0; $i < $pages; $i++) {
-                                ?>
-                                    <li class="page-item">
-                                        <a class="page-link" href="./../usersviews/allcomments.php?id=<?php echo $id; ?>&page=<?php echo $i + 1 ?>">
-                                            <?php echo $i + 1 ?>
-                                        </a>
-                                    </li>
-                                <?php } ?>
-                                <li class="page-item ">
-                                    <a class="page-link" href="./allcomments.php?id=<?php echo $id; ?>&page=<?php if ($page >= $pages) echo  1;
-                                                                                                        else echo $page + 1 ?>" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    <?php } else { ?>
+
+                    <?php
+                        require "./../partials/pages.php";
+                    } else { ?>
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 ">
                             <div class="d-flex">
                                 <h1 class="h5">No Comments .</h1>

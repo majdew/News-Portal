@@ -1,33 +1,51 @@
-<div style="height:40vh" class="d-flex flex-column  justify-content-center">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center p-3  mb-3 border-bottom">
-
-    </div>
-    <form class="form-signin d-flex flex-column  justify-content-between" action="./../services/comment.php"
-        method="post" style="height:100vh" enctype="multipart/form-data">
-        <h5 class="h5 form-label-group row text-center d-flex justify-content-center"> Add comments : </h5>
-
-        <?php if (isset($_GET['id'])) { ?>
-        <input type="text" name="newid" hidden value="<?php echo $_GET['id'] ?>">
-        <?php } ?>
-        <div class="form-label-group row text-center d-flex justify-content-center">
-            <input class="form-control col-4" name="comment" placeholder="Your comment ..." required>
-        </div>
-
-        <div class=" row text-center text-danger d-flex justify-content-center">
+<div class="d-flex justify-content-around border border-dark p-3">
+    <div>
+        <h5 class="h5 form-label-group text-center"> All comments : </h5>
+        <div class="mb-4" id="showlist">
             <?php
+            $newId = $_GET['id'];
+            $query = "SELECT * FROM newscomments WHERE newId =$newId ORDER BY date DESC LIMIT 3 ";
+            $result = mysqli_query($connection, $query);
 
-            if (isset($_GET['error'])) {
-                if ($_GET['error'] == 1) {
-                    echo "Invalid information !!!";
-                }
-            }
+
+            while ($new = mysqli_fetch_array($result)) {
+                $comment = $new['comment'];
+                $date = $new['date'];
+
             ?>
+                <p class="border-bottom border-dark text-center"><?php echo $comment; ?></p>
+            <?php } ?>
+            <?php
+            if (mysqli_num_rows($result) > 3) { ?>
+                <p class=" border-1 text-center">show more ...</p>
+            <?php } ?>
+            <form class="mt-3 form-signin d-flex flex-column justify-content-around" style="height:15vh;" action="./../services/comment.php" method="post" style="height:100vh" enctype="multipart/form-data">
+
+                <?php if (isset($_GET['id'])) { ?>
+                    <input type="text" name="newid" hidden value="<?php echo $_GET['id'] ?>">
+                <?php } ?>
+                <div class="form-label-group row text-center">
+                    <input class="form-control" name="comment" placeholder="Your comment ..." required>
+                </div>
+
+                <div class=" row text-center text-danger">
+                    <?php
+
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error'] == 1) {
+                            echo "Invalid information !!!";
+                        }
+                    }
+                    ?>
+                </div>
+                <button class="btn  btn-sm btn-primary btn-block text-center" name="submit" type="submit">
+                    comment
+                </button>
+            </form>
         </div>
-        <div class="d-flex row justify-content-center">
-            <button class="btn btn-lg btn-primary btn-block col-2 text-center" name="submit" value="Submit"
-                type="submit">
-                post comment
-            </button>
-        </div>
-    </form>
+    </div>
+</div>
+<div>
+
+</div>
 </div>

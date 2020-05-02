@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php require "./../partials/head.php" ?>
+<script src="./../../controllers/categories.js"></script>
 
 <body>
     <div class="container-fluid">
@@ -10,8 +11,9 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Categories : </h1>
+                    <?php require "./../partials/searchform.html"; ?>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive" id="content">
                     <table class="table text-center table-dark table-hover table-bordered table-striped table-sm ">
                         <thead class="thead-dark">
                             <tr>

@@ -1,4 +1,4 @@
-<div class="container border border-danger " style="width: 20rem;">
+<div class="container border border-danger " style="width: 18rem;">
     <h5 class="text-center h6 pt-2 ">Most Commented News :</h5>
     <div class="row">
         <?php
