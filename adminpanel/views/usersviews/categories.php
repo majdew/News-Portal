@@ -24,28 +24,37 @@
                         <tbody>
                             <?php
                             $limit = 8;
-                            if (isset($_GET['page']))
-                                $page = $_GET['page'];
-                            else $page = 1;
+
+                            $allDocsQuery = "SELECT * FROM categories";
+
+                            $resultAllDocs = mysqli_query($connection, $allDocsQuery);
+                            $totalDocs = mysqli_num_rows($resultAllDocs);
+                            $pages = ceil($totalDocs / $limit);
+                            $page = isset($_GET['page']) ? $_GET['page'] : $page = 1;
+
+                            if ($page > $pages || $page <= 0 || !is_numeric($page))
+                                $page = 1;
 
                             $start = ($page - 1) * $limit;
 
                             $query = "SELECT * FROM categories LIMIT $start , $limit";
-                            $allDocsQuery = "SELECT * FROM categories";
                             $result = mysqli_query($connection, $query);
-                            $resultAllDocs = mysqli_query($connection, $allDocsQuery);
+                            $count = (($page - 1) * $limit);
 
-                            $totalDocs = mysqli_num_rows($resultAllDocs);
-                            $pages = ceil($totalDocs / $limit);
-
-                            $count = 0 + (($page - 1) * $limit);
-                            while ($row = mysqli_fetch_array($result)) {
-                                $count++;
+                            if ($totalDocs > 0) {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $count++;
                             ?>
-                                <tr>
-                                    <td><?php echo $count; ?></td>
-                                    <td> <?php echo $row['name']; ?></td>
+                                    <tr>
+                                        <td><?php echo $count; ?></td>
+                                        <td> <?php echo $row['name']; ?></td>
 
+                                    </tr>
+                                <?php
+                                }
+                            } else { ?>
+                                <tr>
+                                    <td colspan="">No Records .</td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -63,7 +72,7 @@
                             for ($i = 0; $i < $pages; $i++) {
                             ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="./../usersviews/categories.php?page=<?php echo $i + 1 ?>">
+                                    <a class="page-link" href="./categories.php?page=<?php echo $i + 1 ?>">
                                         <?php echo $i + 1 ?>
                                     </a>
                                 </li>

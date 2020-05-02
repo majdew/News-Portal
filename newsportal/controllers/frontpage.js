@@ -21,3 +21,18 @@ $(document).ready(function () {
 		});
 	});
 });
+
+$(document).ready(function () {
+	$('#showall').click(function () {
+		console.log('clicked');
+			$.ajax({
+				url: './../services/displaycomments.php',
+				method: 'get',
+				success: function (response) {
+					console.log(response)
+					$('#showlist').html(response);
+				},
+			});
+
+	});
+});

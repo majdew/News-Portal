@@ -1,17 +1,12 @@
 $(document).ready(function () {
-
 	$('#search').keyup(function () {
-		
-
-        let searchText = $(this).val();
-        let newId = $('#newId').val();
+		let searchText = $(this).val();
 
 		$.ajax({
-			url: './../../services/search/searchcomments.php',
+			url: './../../services/search/searchunapprovednews.php',
 			method: 'post',
 			data: {
-                query: searchText,
-                id : newId
+				query: searchText,
 			},
 			success: function (response) {
 				$('#content').html(response);

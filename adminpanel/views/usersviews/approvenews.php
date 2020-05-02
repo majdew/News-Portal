@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php require "./../partials/head.php" ?>
+<script src="./../../controllers/unapprovednews.js"></script>
 
 <body>
     <div class="container-fluid">
@@ -10,43 +11,43 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Unapproved News : </h1>
+                    <?php require "./../partials/searchform.html"; ?>
                 </div>
+                <div class="table-responsive" id="content">
+                    <table class="table text-center table-dark table-hover table-bordered table-striped table-sm ">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Number</th>
+                                <th>Title</th>
+                                <th>options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
 
-                <div class="table-responsive">
-                    <?php
+                            $limit = 8;
 
-                    $limit = 8;
-                    if (isset($_GET['page']))
-                        $page = $_GET['page'];
-                    else $page = 1;
+                            $allDocsQuery = "SELECT * FROM news  WHERE published=0 ORDER BY dateposted DESC";
 
-                    $start = ($page - 1) * $limit;
-                    $query = "SELECT * FROM news  WHERE published=0 ORDER BY dateposted DESC LIMIT $start , $limit";
-                    $allDocsQuery = "SELECT * FROM news  WHERE published=0 ORDER BY dateposted DESC";
+                            $resultAllDocs = mysqli_query($connection, $allDocsQuery);
+                            $totalDocs = mysqli_num_rows($resultAllDocs);
+                            $pages = ceil($totalDocs / $limit);
+                            $page = isset($_GET['page']) ? $_GET['page'] : $page = 1;
 
-                    $result = mysqli_query($connection, $query);
-                    $resultAllDocs = mysqli_query($connection, $allDocsQuery);
+                            if ($page > $pages || $page <= 0 || !is_numeric($page))
+                                $page = 1;
 
-                    $totalDocs = mysqli_num_rows($resultAllDocs);
-                    $pages = ceil($totalDocs / $limit);
+                            $start = ($page - 1) * $limit;
 
-                    $count = 0 + (($page - 1) * $limit);
-                    if ($pages > 0) {
-                    ?>
-                        <table class="table text-center table-dark table-hover table-bordered table-striped table-sm ">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>Number</th>
-                                    <th>Title</th>
-                                    <th>options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                            $query = "SELECT * FROM news  WHERE published=0 ORDER BY dateposted DESC LIMIT $start , $limit";
 
-                                <?php
+                            $result = mysqli_query($connection, $query);
+                            $count = (($page - 1) * $limit);
+
+                            if ($totalDocs > 0) {
                                 while ($row = mysqli_fetch_array($result)) {
                                     $count++;
-                                ?>
+                            ?>
                                     <tr>
                                         <td><?php echo $count; ?></td>
                                         <td> <?php echo $row['title']; ?></td>
@@ -57,9 +58,16 @@
                                             <a href="./newsdetails.php?id=<?php echo $row['id']; ?>"> <img src="./../../assets/icons/eye.png" /></a>
                                         </td>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                                <?php
+                                }
+                            } else { ?>
+                                <tr>
+                                    <td colspan="6">No Records .</td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                    <?php if ($pages > 0) { ?>
                         <nav aria-label="Page navigation d-flex justify-content-end example">
                             <ul class="pagination">
                                 <li class="page-item">
@@ -87,18 +95,10 @@
                                 </li>
                             </ul>
                         </nav>
-                    <?php } else { ?>
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 ">
-                            <div class="d-flex">
-                                <h1 class="h5">There is no news to approve .</h1>
-                            </div>
-                        </div>
                     <?php } ?>
             </main>
         </div>
     </div>
 </body>
-
-</html>
 
 </html>

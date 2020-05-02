@@ -5,7 +5,9 @@
             <?php
             $newId = $_GET['id'];
             $query = "SELECT * FROM newscomments WHERE newId =$newId ORDER BY date DESC LIMIT 3 ";
+            $allDocs = "SELECT * FROM newscomments WHERE newId =$newId ORDER BY date DESC";
             $result = mysqli_query($connection, $query);
+            $resultAllDocs = mysqli_query($connection, $allDocs);
 
 
             while ($new = mysqli_fetch_array($result)) {
@@ -13,11 +15,12 @@
                 $date = $new['date'];
 
             ?>
+
                 <p class="border-bottom border-dark text-center"><?php echo $comment; ?></p>
             <?php } ?>
             <?php
-            if (mysqli_num_rows($result) > 3) { ?>
-                <p class=" border-1 text-center">show more ...</p>
+            if (mysqli_num_rows($resultAllDocs) > 3) { ?>
+                <p class=" border-1 text-center" id="showall"><a>show more ...</a></p>
             <?php } ?>
             <form class="mt-3 form-signin d-flex flex-column justify-content-around" style="height:15vh;" action="./../services/comment.php" method="post" style="height:100vh" enctype="multipart/form-data">
 

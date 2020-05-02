@@ -2,26 +2,22 @@
     <thead class="thead-dark">
         <tr>
             <th>Number</th>
-            <th>Comment</th>
-            <th>date</th>
+            <th>Title</th>
+            <th>options</th>
         </tr>
     </thead>
     <tbody>
         <?php
 
-        $limit = 8;
         require "./../connection.php";
+        $limit = 8;
 
-
-        if (!isset($_POST['query']))
+        if ($_POST['query'])
+            $searchText = mysqli_escape_string($connection, $_POST['query']);
+        else
             $searchText = '';
 
-        $id = $_POST['id'];
-        $searchText = mysqli_escape_string($connection, $_POST['query']);
-
-
-        $allDocsQuery = "SELECT * FROM newscomments WHERE newId=$id 
-                    AND ( comment LIKE '%$searchText%' OR date LIKE '%$searchText%') ORDER BY date DESC";
+        $allDocsQuery = "SELECT * FROM news  WHERE published=0 AND ( title LIKE '%$searchText%')  ORDER BY dateposted DESC";
 
         $resultAllDocs = mysqli_query($connection, $allDocsQuery);
         $totalDocs = mysqli_num_rows($resultAllDocs);
@@ -33,9 +29,7 @@
 
         $start = ($page - 1) * $limit;
 
-
-        $query = "SELECT * FROM newscomments WHERE newId=$id
-                 AND ( comment LIKE '%$searchText%' OR date LIKE '%$searchText%') ORDER BY date DESC LIMIT $start , $limit";
+        $query = "SELECT * FROM news  WHERE published=0 AND ( title LIKE '%$searchText%')  ORDER BY dateposted DESC LIMIT $start , $limit";
 
         $result = mysqli_query($connection, $query);
         $count = (($page - 1) * $limit);
@@ -46,14 +40,19 @@
         ?>
                 <tr>
                     <td><?php echo $count; ?></td>
-                    <td> <?php echo $row['comment']; ?></td>
-                    <td> <?php echo $row['date']; ?></td>
+                    <td> <?php echo $row['title']; ?></td>
+                    <td>
+
+                        <a href="./../../usersfunctionality/approvenews.php?id=<?php echo $row['id']; ?>">
+                            <img src="./../../assets/icons/done.png" /></a>
+                        <a href="./newsdetails.php?id=<?php echo $row['id']; ?>"> <img src="./../../assets/icons/eye.png" /></a>
+                    </td>
                 </tr>
             <?php
             }
         } else { ?>
             <tr>
-                <td colspan="3">No Records .</td>
+                <td colspan="6">No Records .</td>
             </tr>
         <?php } ?>
     </tbody>
@@ -62,8 +61,8 @@
     <nav aria-label="Page navigation d-flex justify-content-end example">
         <ul class="pagination">
             <li class="page-item">
-                <a class="page-link" href="./allcomments?id=<?php echo $id; ?>&page=<?php if ($page <= 1) echo  1;
-                                                                                    else echo $page - 1 ?>" aria-label="Previous">
+                <a class="page-link" href="./approvenews.php?page=<?php if ($page <= 1) echo  1;
+                                                                    else echo $page - 1 ?>" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
                 </a>
@@ -72,14 +71,14 @@
             for ($i = 0; $i < $pages; $i++) {
             ?>
                 <li class="page-item">
-                    <a class="page-link" href="./allcomments.php?id=<?php echo $id; ?>&page=<?php echo $i + 1 ?>">
+                    <a class="page-link" href="./../usersviews/approvenews.php?page=<?php echo $i + 1 ?>">
                         <?php echo $i + 1 ?>
                     </a>
                 </li>
             <?php } ?>
             <li class="page-item ">
-                <a class="page-link" href="./allcomments.php?id=<?php echo $id; ?>&page=<?php if ($page >= $pages) echo  1;
-                                                                                        else echo $page + 1 ?>" aria-label="Next">
+                <a class="page-link" href="./approvenews.php?page=<?php if ($page >= $pages) echo  1;
+                                                                    else echo $page + 1 ?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>
