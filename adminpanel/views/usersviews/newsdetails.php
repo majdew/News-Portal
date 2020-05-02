@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 
+
+<?php require "./../../services/connection.php"; ?>
 <?php require "./../partials/head.php" ?>
 
 <body>
@@ -44,7 +46,7 @@
                         </h5>
                         <img class="card-img-top" src="./../../../images/news/<?php echo $imageTitle; ?>" alt="new" />
                         <p class="card-text font-italic p-2">
-                            Writen By : <?php echo $writer[1] . " "; ?> 
+                            Writen By : <?php echo $writer[1] . " "; ?>
                             [<?php echo $new['dateposted']; ?>]
                         </p>
                         <p class="card-text font-italic p-2">

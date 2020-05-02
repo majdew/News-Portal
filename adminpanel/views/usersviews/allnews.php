@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+<?php require "./../../services/connection.php"; ?>
 <?php require "./../partials/head.php" ?>
 <script src="./../../controllers/allnews"></script>
 

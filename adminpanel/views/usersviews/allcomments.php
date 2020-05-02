@@ -2,6 +2,8 @@
 <html lang="en">
 
 <?php require "./../partials/head.php" ?>
+<?php require "./../../services/connection.php"; ?>
+
 <script src="./../../controllers/comments.js"></script>
 
 <body>

@@ -1,9 +1,3 @@
-<?php
-
-require "./../../services/session.php";
-require "./../../services/connection.php";
-
-?>
 <nav class="col-md-2 d-none d-md-block bg-light sidebar fixed-top" style="height: 100vh;">
     <div class="border user  bg-dark rounded border-light p-2 mt-2">
         <div class="text-center ">
