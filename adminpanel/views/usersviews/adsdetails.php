@@ -27,7 +27,7 @@
                     $website = $row['website'];
                     $imageTitle = $row['image'];
                 ?>
-                    <div class="flex-column p-3 mt-3 mb-3  ml-auto mr-auto ">
+                    <div class="flex-column p-3 mt-3 mb-3  ml-auto mr-auto " style="width: 20rem;">
                         <h5 class="card-text p-2 font-weight-bold text-center">
                             <?php echo $website; ?> .
                         </h5>

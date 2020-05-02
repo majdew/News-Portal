@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-
 <?php require "./../../services/connection.php"; ?>
 <?php require "./../partials/head.php" ?>
 
@@ -39,8 +38,10 @@
                     $resultWriter = mysqli_query($connection, $queryWriter);
                     $writer = mysqli_fetch_array($resultWriter);
 
+                    
+
                 ?>
-                    <div class="flex-column p-3 mt-3 mb-3 border border-dark ml-auto mr-auto " style="width: 40rem;">
+                    <div class="flex-column p-3 mt-3 mb-3 border border-dark ml-auto mr-auto " style="width: 40rem;" >
                         <h5 class="card-text p-2 font-weight-bold text-center">
                             <?php echo $title; ?> .
                         </h5>

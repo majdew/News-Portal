@@ -3,6 +3,7 @@ require "./../services/connection.php";
 
 if (isset($_POST['submit'])) {
 
+    echo $_POST['id'];
     $adId = $_POST['id'];
     $website = mysqli_escape_string($connection, $_POST['website']);
     $isActive = $_POST['isActive'];

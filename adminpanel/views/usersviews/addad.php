@@ -46,13 +46,12 @@ if (isset($_GET['id'])) {
                             <label for="image" class="col-2">Image</label>
                             <input type="file" class="form-control-file col-4" name="ad" <?php if (isset($_GET['id'])) { ?> value="./../../../images/ads/<?php echo $row['image']; ?>" <?php } ?>>
                         </div>
-
                         <div class="form-label-group text-center row d-flex justify-content-center">
                             <label for="role" class="col-2">Status</label>
                             <div class=" form-check col-4 d-flex justify-content-between ">
                                 <div class="text-center d-flex justify-content-between">
                                     <label for="active" class="col-4">Active</label>
-                                    <input class="form-check-input" name="isActive" value="2" <?php if (isset($_GET['id'])) {
+                                    <input class="form-check-input" name="isActive" value="1" <?php if (isset($_GET['id'])) {
                                                                                                 if ($row['isActive'] == 1) echo "checked";
                                                                                             } else { ?> checked <?php }  ?> type="radio">
 
@@ -60,7 +59,7 @@ if (isset($_GET['id'])) {
 
                                 <div class="text-center d-flex justify-content-between">
                                     <label for="notactive" class="col-5">Not Active</label>
-                                    <input class="form-check-input" name="isActive" value="1" type="radio" <?php if (isset($_GET['id'])) {
+                                    <input class="form-check-input" name="isActive" value="0" type="radio" <?php if (isset($_GET['id'])) {
                                                                                                                 if ($row['isActive'] == 0) echo "checked";
                                                                                                             } ?>>
                                 </div>
