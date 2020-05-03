@@ -2,11 +2,11 @@
 
 require "./../services/connection.php";
 
-if (!isset($_GET['id'])) {
+if (!isset($_POST['id'])) {
     header("location:./../views/usersviews/allnews.php");
 }
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 $query = "DELETE FROM news WHERE id=$id";
 $result = mysqli_query($connection, $query);
 

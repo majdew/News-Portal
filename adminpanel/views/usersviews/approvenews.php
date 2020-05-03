@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-    
+
 <?php require "./../../services/connection.php"; ?>
 <?php require "./../partials/head.php" ?>
 <script src="./../../controllers/unapprovednews.js"></script>
@@ -50,12 +50,14 @@
                                     $count++;
                             ?>
                                     <tr>
+                                        <td style="display: none;"><?php echo $row['id']; ?></td>
                                         <td><?php echo $count; ?></td>
                                         <td> <?php echo $row['title']; ?></td>
                                         <td>
 
-                                            <a href="./../../usersfunctionality/approvenews.php?id=<?php echo $row['id']; ?>">
-                                                <img src="./../../assets/icons/done.png" /></a>
+                                            <a class="getId" data-toggle="modal" data-target="#approveModal">
+                                                <img src="./../../assets/icons/done.png" />
+                                            </a>
                                             <a href="./newsdetails.php?id=<?php echo $row['id']; ?>"> <img src="./../../assets/icons/eye.png" /></a>
                                         </td>
                                     </tr>
@@ -103,3 +105,26 @@
 </body>
 
 </html>
+
+<div class="modal fade" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fontweight-bold" id="exampleModalLabel">Approve</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to display this new in website?
+            </div>
+            <div class="modal-footer">
+                <form action="./../../usersfunctionality/approvenews.php" method="post">
+                    <input type="text" hidden name="id" id="idInput">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

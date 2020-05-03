@@ -39,12 +39,14 @@
                 $count++;
         ?>
                 <tr>
+                    <td style="display: none;"> <?php echo $row['id']; ?></td>
                     <td><?php echo $count; ?></td>
                     <td> <?php echo $row['title']; ?></td>
                     <td>
 
-                        <a href="./../../usersfunctionality/approvenews.php?id=<?php echo $row['id']; ?>">
-                            <img src="./../../assets/icons/done.png" /></a>
+                        <a class="getId" data-toggle="modal" data-target="#deleteModal">
+                            <img src="./../../assets/icons/done.png" />
+                        </a>
                         <a href="./newsdetails.php?id=<?php echo $row['id']; ?>"> <img src="./../../assets/icons/eye.png" /></a>
                     </td>
                 </tr>

@@ -3,7 +3,8 @@ require "./../services/connection.php";
 
 $adId = $_POST['id'];
 
-$query = "DELETE FROM advertisement  WHERE id=$adId";
+$query = "UPDATE advertisement SET isActive =1 WHERE id=$adId";
+
 
 $result = mysqli_query($connection, $query);
 

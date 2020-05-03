@@ -13,4 +13,18 @@ $(document).ready(function () {
 			},
 		});
 	});
+
+	$('.modalbtn').click(function () {
+		console.log('clicked');
+		tr = $(this).closest('tr');
+		let adId = tr
+			.children('td')
+			.map(function () {
+				return $(this).text();
+			})
+			.get();
+		console.log(adId);
+		$('#inputId').val(adId[0]);
+	});
+
 });

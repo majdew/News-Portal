@@ -1,7 +1,7 @@
 <?php
 require "./../services/connection.php";
 
-$newId = $_GET['id'];
+$newId = $_POST['id'];
 $query = "UPDATE news SET published = 1 WHERE id=$newId";
 
 

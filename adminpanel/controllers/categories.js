@@ -13,4 +13,18 @@ $(document).ready(function () {
 			},
 		});
 	});
+
+	$('.getEditId').click(function () {
+		tr = $(this).closest('tr');
+		console.log('clicked');
+		let data = tr
+			.children('td')
+			.map(function () {
+				return $(this).text();
+			})
+			.get();
+	
+		$('#idEditInput').val(data[0]);
+		$('#oldname').val(data[2]);
+	});
 });

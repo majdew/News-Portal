@@ -65,8 +65,9 @@
                         <?php } ?>
                         <a href="./newsdetails.php?id=<?php echo $row['id']; ?>"> <img src="./../../assets/icons/eye.png" /></a>
                         <?php if ($roleId == 0 || $roleId == 2) { ?>
-                            <a href="./../../usersfunctionality/deletenews.php?id=<?php echo $row['id']; ?>">
-                                <img src="./../../assets/icons/rubbish.png" /></a>
+                            <a class="getId" data-toggle="modal" data-target="#deleteModal">
+                                <img src="./../../assets/icons/rubbish.png" />
+                            </a>
                         <?php } ?>
                         <a href="./allcomments.php?id=<?php echo $row['id']; ?>">
                             <img src="./../../assets/icons/comment.png" /></a>

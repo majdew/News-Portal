@@ -15,10 +15,12 @@
                     <?php require "./../partials/searchform.html"; ?>
                 </div>
 
+
                 <div class="table-responsive" id="content">
                     <table class="table text-center table-dark table-hover table-bordered table-striped table-sm ">
                         <thead class="thead-dark">
                             <tr>
+
                                 <th>Number</th>
                                 <th>Website</th>
                                 <th>Clicks</th>
@@ -51,7 +53,9 @@
                                 while ($row = mysqli_fetch_array($result)) {
                                     $count++;
                             ?>
+
                                     <tr>
+                                        <td style="display: none"><?php echo $row['id']; ?></td>
                                         <td><?php echo $count; ?></td>
                                         <td>
                                             <a class="text-white" href="<?php echo $row['website']; ?>">
@@ -75,8 +79,11 @@
                                             <a href="./adsdetails.php?id=<?php echo $row['id']; ?>">
                                                 <img src="./../../assets/icons/eye.png" />
                                             </a>
-                                            <a href="./../../usersfunctionality/deleteads.php?id=<?php echo $row['id']; ?>">
+                                            <a class="getId" data-toggle="modal" data-target="#deleteModal">
                                                 <img src="./../../assets/icons/rubbish.png" />
+                                            </a>
+                                            <a data-toggle="modal" data-target="#activateModal" class="modalbtn">
+                                                <img src=" ./../../assets/icons/ads.png" />
                                             </a>
                                         </td>
                                     </tr>
@@ -94,7 +101,7 @@
                             <ul class="pagination">
                                 <li class="page-item">
                                     <a class="page-link" href="./ads?page=<?php if ($page <= 1) echo  1;
-                                                                                else echo $page - 1 ?>" aria-label="Previous">
+                                                                            else echo $page - 1 ?>" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                         <span class="sr-only">Previous</span>
                                     </a>
@@ -110,19 +117,65 @@
                                 <?php } ?>
                                 <li class="page-item ">
                                     <a class="page-link" href="./ads?page=<?php if ($page >= $pages) echo  1;
-                                                                                else echo $page + 1 ?>" aria-label="Next">
+                                                                            else echo $page + 1 ?>" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                         <span class="sr-only">Next</span>
                                     </a>
                                 </li>
                             </ul>
                         </nav>
+
                     <?php } ?>
                 </div>
-
             </main>
         </div>
     </div>
 </body>
 
 </html>
+
+<div class="modal fade" id="activateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Activation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to display this ad in the news website ?
+            </div>
+            <div class="modal-footer">
+                <form action="./../../usersfunctionality/activate.php" method="post">
+                    <input type="text" hidden name="id" id="inputId">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="activate">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete this record?
+            </div>
+            <div class="modal-footer">
+                <form action="./../../usersfunctionality/deleteads.php" method="post">
+                    <input type="text" hidden name="id" id="idInput">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

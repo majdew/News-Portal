@@ -66,8 +66,11 @@
                          <a href="./adsdetails.php?id=<?php echo $row['id']; ?>">
                              <img src="./../../assets/icons/eye.png" />
                          </a>
-                         <a href="./../../usersfunctionality/deleteads.php?id=<?php echo $row['id']; ?>">
+                         <a class="getId" data-toggle="modal" data-target="#deleteModal">
                              <img src="./../../assets/icons/rubbish.png" />
+                         </a>
+                         <a data-toggle="modal" data-target="#activateModal" class="modalbtn">
+                             <img src=" ./../../assets/icons/ads.png" />
                          </a>
                      </td>
                  </tr>

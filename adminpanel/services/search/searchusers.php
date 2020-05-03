@@ -45,6 +45,7 @@
                 $count++;
         ?>
                 <tr>
+                    <td style="display: none;"> <?php echo $row['id']; ?></td>
                     <td><?php echo $count; ?></td>
                     <td> <?php echo $row['name']; ?></td>
                     <td> <?php echo $row['email']; ?></td>
@@ -59,9 +60,8 @@
                         <a href="./adduser.php?id=<?php echo $row['id']; ?>">
                             <img src="./../../assets/icons/pencil.png" /></a>
 
-                        <a href="./../../usersfunctionality/deleteuser.php?id=<?php echo $row['id']; ?>">
-                            <img src="./../../assets/icons/rubbish.png" />
-                        </a>
+                        <a class="getId" data-toggle="modal" data-target="#deleteModal">
+                            <img src="./../../assets/icons/rubbish.png" /></a>
                     </td>
                 </tr>
             <?php
