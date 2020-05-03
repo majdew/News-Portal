@@ -40,7 +40,7 @@ $new = mysqli_fetch_array($result);
             <h5 class="card-text p-2 font-weight-bold text-center">
                 <?php echo $title; ?> .
             </h5>
-            <img class="card-img-top" src="./../assets/images/<?php echo $imageTitle; ?>" alt="new" />
+            <img class="card-img-top" src="./../../images/news/<?php echo $imageTitle; ?>" alt="new" />
             <p class="card-text p-2">
                 <?php echo $body; ?>
             </p>

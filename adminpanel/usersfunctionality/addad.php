@@ -5,13 +5,13 @@ require "./../services/connection.php";
 if (isset($_POST['submit'])) {
 
     $website = mysqli_escape_string($connection, $_POST['website']);
-    $isActive = $_POST['isActive'];
+    $position = $_POST['position'];
 
 
     if (isset($_FILES['ad'])) {
         $image = $_FILES['ad']['name'];
 
-        $query = "INSERT INTO advertisement (website, isActive , image , position) VALUES ('$website', $isActive,'$image' , 1)";
+        $query = "INSERT INTO advertisement (website, image , position) VALUES ('$website','$image'  , '$position')";
 
         $result = mysqli_query($connection, $query);
 

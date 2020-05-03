@@ -5,6 +5,7 @@
              <th>Website</th>
              <th>Clicks</th>
              <th>Status</th>
+             <th>Position</th>
              <th>options</th>
          </tr>
      </thead>
@@ -57,6 +58,13 @@
                              Active
                          <?php } else { ?>
                              Not Active
+                         <?php } ?>
+                     </td>
+                     <td>
+                         <?php if ($row['position'] == 1) { ?>
+                             Body
+                         <?php } else { ?>
+                             Bottom
                          <?php } ?>
                      </td>
                      <td>

@@ -4,10 +4,12 @@ require "./../../services/connection.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    echo $id;
 
     $query = "SELECT * FROM advertisement WHERE id=$id";
 
     $result = mysqli_query($connection, $query);
+
     $row = mysqli_fetch_assoc($result);
 }
 ?>
@@ -24,7 +26,9 @@ if (isset($_GET['id'])) {
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">
-                        <?php if (isset($_GET['id'])) { ?>
+                        <?php if (isset($_GET['id'])) {
+                            echo $_GET['id']; ?>
+
                             Update Ads:
                         <?php } else { ?>
                             Add Ads:
@@ -44,28 +48,47 @@ if (isset($_GET['id'])) {
 
                         <div class="form-label-group row text-center d-flex justify-content-center">
                             <label for="image" class="col-2">Image</label>
-                            <input accept="image/*" required type="file" class="form-control-file col-4" name="ad" <?php if (isset($_GET['id'])) { ?> value="./../../../images/ads/<?php echo $row['image']; ?>" <?php } ?>>
+                            <input accept="image/*" type="file" class="form-control-file col-4" name="ad" <?php if (isset($_GET['id'])) { ?> value="./../../../images/ads/<?php echo $row['image']; ?>" <?php } ?>>
                         </div>
                         <div class="form-label-group text-center row d-flex justify-content-center">
-                            <label for="role" class="col-2">Status</label>
+                            <label for="role" class="col-2">Position</label>
                             <div class=" form-check col-4 d-flex justify-content-between ">
                                 <div class="text-center d-flex justify-content-between">
-                                    <label for="active" class="col-4">Active</label>
-                                    <input class="form-check-input" name="isActive" value="1" <?php if (isset($_GET['id'])) {
-                                                                                                    if ($row['isActive'] == 1) echo "checked";
+                                    <label for="body" class="col-4">Body</label>
+                                    <input class="form-check-input" name="position" value="1" <?php if (isset($_GET['id'])) {
+                                                                                                    if ($row['position'] == 1) echo "checked";
                                                                                                 } else { ?> checked <?php }  ?> type="radio">
 
                                 </div>
 
                                 <div class="text-center d-flex justify-content-between">
-                                    <label for="notactive" class="col-5">Not Active</label>
-                                    <input class="form-check-input" name="isActive" value="0" type="radio" <?php if (isset($_GET['id'])) {
-                                                                                                                if ($row['isActive'] == 0) echo "checked";
+                                    <label for="bottom" class="col-5">Bottom</label>
+                                    <input class="form-check-input" name="position" value="0" type="radio" <?php if (isset($_GET['id'])) {
+                                                                                                                if ($row['position'] == 0) echo "checked";
                                                                                                             } ?>>
                                 </div>
                             </div>
                         </div>
+                        <?php if (isset($_GET['id'])) { ?>
+                            <div class="form-label-group text-center row d-flex justify-content-center">
+                                <label for="role" class="col-2">Status</label>
+                                <div class=" form-check col-4 d-flex justify-content-between ">
+                                    <div class="text-center d-flex justify-content-between">
+                                        <label for="body" class="col-4">Active</label>
+                                        <input class="form-check-input" name="isActive" type="radio" value="1" <?php
+                                                                                                                if ($row['isActive'] == 1) echo "checked"; ?>>
 
+                                    </div>
+
+                                    <div class="text-center d-flex justify-content-between">
+                                        <label for="bottom" class="col-5">Not </label>
+                                        <input class="form-check-input" name="isActive" value="0" type="radio" <?php
+                                                                                                                if ($row['isActive'] == 0) echo "checked"; ?>>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
                         <div class=" row text-center d-flex text-danger justify-content-center">
                             <?php
                             if (isset($_GET['error'])) {

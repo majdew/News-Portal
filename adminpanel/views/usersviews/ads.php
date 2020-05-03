@@ -25,6 +25,7 @@
                                 <th>Website</th>
                                 <th>Clicks</th>
                                 <th>Status</th>
+                                <th>Position</th>
                                 <th>options</th>
                             </tr>
                         </thead>
@@ -73,6 +74,13 @@
                                             <?php } ?>
                                         </td>
                                         <td>
+                                            <?php if ($row['position'] == 1) { ?>
+                                                Body
+                                            <?php } else { ?>
+                                                Bottom
+                                            <?php } ?>
+                                        </td>
+                                        <td>
                                             <a href="./addad.php?id=<?php echo $row['id']; ?>">
                                                 <img src="./../../assets/icons/pencil.png" />
                                             </a>
@@ -96,6 +104,7 @@
                             <?php } ?>
                         </tbody>
                     </table>
+
                     <?php if ($pages > 0) { ?>
                         <nav aria-label="Page navigation d-flex justify-content-end example">
                             <ul class="pagination">
@@ -125,7 +134,19 @@
                             </ul>
                         </nav>
 
-                    <?php } ?>
+
+                        <?php }
+                    if (isset($_GET['error'])) {
+                        if ($_GET['error'] == 2) { ?>
+                            <div class="text-center text-danger fontweight-bold">
+                                You must remove one of the ads from the website [isActive = false]
+                            </div>
+                        <?php } else { ?>
+                            <div class="text-center text-danger fontweight-bold">
+                                There is a problem ..
+                            </div>
+                    <?php  }
+                    } ?>
                 </div>
             </main>
         </div>

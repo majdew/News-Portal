@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     echo $_POST['id'];
     $adId = $_POST['id'];
     $website = mysqli_escape_string($connection, $_POST['website']);
+    $position = $_POST['position'];
     $isActive = $_POST['isActive'];
     $image = $_FILES['ad']['name'];
 
@@ -13,11 +14,11 @@ if (isset($_POST['submit'])) {
     if ($image) {
 
         $query = "UPDATE advertisement SET
-        website='$website', image='$image', isActive =$isActive
+        website='$website', image='$image', position =$position , isActive =$isActive
         WHERE id=$adId";
     } else {
         $query = "UPDATE advertisement SET
-        website='$website', isActive =$isActive
+        website='$website',position =$position, isActive =$isActive
         WHERE id=$adId";
     }
 

@@ -9,6 +9,9 @@
     <div class="d-flex flex-row p-2" style=" width: 100vw">
         <div class="flex-column d-flex" style="width: 20rem;">
             <?php require "./partials/mostcommented.php"; ?>
+
+
+
             <?php require "./partials/mostviewed.php"; ?>
         </div>
         <?php
@@ -33,7 +36,7 @@
                             <?php echo $new2['title']; ?>...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $new2[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new2[4]; ?>" alt="new" />
                 </div>
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center" style="width: 15rem; height: 5rem;">
@@ -41,7 +44,7 @@
                             <?php echo $new3['title']; ?> ...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $new3[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new3[4]; ?>" alt="new" />
                 </div>
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center" style="width: 15rem; height: 5rem;">
@@ -49,7 +52,7 @@
                             <?php echo $new4['title']; ?>...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../assets/images/<?php echo $new4[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new4[4]; ?>" alt="new" />
                 </div>
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center" style="width: 15rem;">
@@ -57,11 +60,11 @@
                             <?php echo $new5['title']; ?>...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height : 5rem;" src="./../assets/images/<?php echo $new5[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height : 5rem;" src="./../../images/news/<?php echo $new5[4]; ?>" alt="new" />
                 </div>
             </div>
             <div class="flex-column p-2 " style="width: 35rem;">
-                <img class="card-img-top" src="./../assets/images/<?php echo $new1[4]; ?>" alt="new" />
+                <img class="card-img-top" src="./../../images/news/<?php echo $new1[4]; ?>" alt="new" />
                 <p class="card-text text-center p-2">
                     <a href='./detailspage.php?id=<?php echo $new1[0]; ?>'>
                         <?php echo $new1['title']; ?> ...
@@ -72,7 +75,7 @@
         </div>
         <div class="d-flex flex-row m-auto">
             <div class="flex-column p-2" style="width: 14rem; ">
-                <img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new6[4]; ?>" alt="new" />
+                <img style="width: 14rem;" class="p-2" src="./../../images/news/<?php echo $new6[4]; ?>" alt="new" />
                 <p class="card-text text-center p-2">
                     <a href='./detailspage.php?id=<?php echo $new6[0]; ?>'>
                         <?php echo $new6['title']; ?> ...
@@ -80,7 +83,7 @@
                 </p>
             </div>
             <div class="flex-column p-2" style="width: 14rem; ">
-                <img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new7[4]; ?>" alt="new" />
+                <img style="width: 14rem;" class="p-2" src="./../../images/news/<?php echo $new7[4]; ?>" alt="new" />
                 <p class="card-text text-center p-2">
                     <a href='./detailspage.php?id=<?php echo $new7[0]; ?>'>
                         <?php echo $new7['title']; ?> ...
@@ -88,7 +91,7 @@
                 </p>
             </div>
             <div class="flex-column p-2" style="width: 14rem; ">
-                <img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new8[4]; ?>" alt="new" />
+                <img style="width: 14rem;" class="p-2" src="./../../images/news/<?php echo $new8[4]; ?>" alt="new" />
                 <p class="card-text text-center p-2">
                     <a href='./detailspage.php?id=<?php echo $new8[0]; ?>'>
                         <?php echo $new8['title']; ?> ...
@@ -96,14 +99,27 @@
                 </p>
             </div>
             <div class="flex-column p-2" style="width: 14rem; ">
-                <img style="width: 14rem;" class="p-2" src="./../assets/images/<?php echo $new9[4]; ?>" alt="new" />
+                <img style="width: 14rem;" class="p-2" src="./../../images/news/<?php echo $new9[4]; ?>" alt="new" />
                 <p class="card-text text-center p-2">
                     <a href='./detailspage.php?id=<?php echo $new9[0]; ?>'>
                         <?php echo $new9['title']; ?> ...
                     </a>
                 </p>
             </div>
+
         </div>
+        <?php
+        $query = "SELECT * FROM advertisement  WHERE position = 0  AND isActive=1";
+        $result = mysqli_query($connection, $query);
+        $numberOfAds = mysqli_num_rows($result);
+
+        if ($numberOfAds == 1) {
+            $ad = mysqli_fetch_array($result);
+        ?>
+            <div class="d-flex justify-content-center">
+                <img class=" p-2 align-center" src="./../../images/ads/<?php echo $ad['image']; ?>" width="800px" height="100px">
+            </div>
+        <?php } ?>
     </div>
     </div>
 </body>
