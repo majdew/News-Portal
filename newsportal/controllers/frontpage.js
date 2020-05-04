@@ -20,19 +20,21 @@ $(document).ready(function () {
 			$('#showlist').html(' ');
 		});
 	});
-});
 
-$(document).ready(function () {
 	$('#showall').click(function () {
+		let newId = $('#newIdComment').val();
+		console.log(newId)
 		console.log('clicked');
-			$.ajax({
-				url: './../services/displaycomments.php',
-				method: 'get',
-				success: function (response) {
-					console.log(response)
-					$('#showlist').html(response);
-				},
-			});
-
+		$.ajax({
+			url: './../services/loadallcomments.php',
+			method: 'post',
+			data: {
+				id : newId
+			},
+			success: function (response) {
+				console.log(response);
+				$('#showcomments').html(response);
+			},
+		});
 	});
 });

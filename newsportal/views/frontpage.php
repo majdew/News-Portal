@@ -9,9 +9,6 @@
     <div class="d-flex flex-row p-2" style=" width: 100vw">
         <div class="flex-column d-flex" style="width: 20rem;">
             <?php require "./partials/mostcommented.php"; ?>
-
-
-
             <?php require "./partials/mostviewed.php"; ?>
         </div>
         <?php

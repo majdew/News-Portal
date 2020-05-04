@@ -36,7 +36,7 @@
 			</li>
 		</ul>
 		<ul class="navbar-nav row">
-			<form class="form-inline" autocomplete="off" action="detailspage.php" method="post">
+			<form class="form-inline" autocomplete="off" >
 				<input class="form-control rounded-0" id="search" placeholder="Search for news ..." aria-label="Search" />
 				<button class="btn my-2 my-sm-0 Search" type="submit" name="submit" value="Search">
 					<img class="search" src="./../assets/icons/pinpng.com-searchicon-png-773069.png" alt="new" width="20px" height="20px" />
