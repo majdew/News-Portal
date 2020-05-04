@@ -27,7 +27,7 @@ $new = mysqli_fetch_array($result);
 <body>
     <?php
     require "./partials/navbar.php";
-require "./partials/breakingnews.php";
+    require "./partials/breakingnews.php";
 
 
     if ($totalDocs == 1) {
@@ -68,7 +68,7 @@ require "./partials/breakingnews.php";
             <p class="card-text p-2">
                 <?php echo $body; ?>
             </p>
-            <button class="btn btn-sm btn-primary">Share with facebook</button>
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=large&appId=660454011357008&width=110&height=28" width="110" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
         </div>
     <?php
         require "./commentview.php";

@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-around border border-dark p-3">
+<div class="d-flex justify-content-around p-3">
     <div>
         <h5 class="h5 form-label-group text-center"> All comments : </h5>
         <div class="mb-4">
