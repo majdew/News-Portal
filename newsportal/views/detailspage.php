@@ -44,6 +44,7 @@ $new = mysqli_fetch_array($result);
             <p class="card-text p-2">
                 <?php echo $body; ?>
             </p>
+            <button class="btn btn-sm btn-primary">Share with facebook</button>
         </div>
     <?php
 

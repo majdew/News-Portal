@@ -30,7 +30,7 @@
 					$result = mysqli_query($connection, $query);
 					while ($category = mysqli_fetch_array($result)) {
 					?>
-						<a class="dropdown-item" href=""><?php echo $category[1]; ?></a>
+						<a class="dropdown-item" href="./category.php?category=<?php echo $category[1];  ?>"><?php echo $category[1]; ?></a>
 					<?php } ?>
 				</div>
 			</li>
