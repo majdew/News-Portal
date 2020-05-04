@@ -27,6 +27,7 @@ if ($result) {
     $isUrgent = $new[7];
     $isGlobal = $new[9];
     $writerId = $new[8];
+    echo $writerId;
 
     $queryWriter = "SELECT * FROM users WHERE id=$writerId";
     $resultWriter = mysqli_query($connection, $queryWriter);

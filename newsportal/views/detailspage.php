@@ -33,6 +33,17 @@ $new = mysqli_fetch_array($result);
         $imageTitle = $new[4];
         $body = $new[2];
         $category = $new[3];
+        $isUrgent = $new[7];
+        $isGlobal = $new[9];
+        $writerId = $new[8];
+
+        $queryWriter = "SELECT * FROM users WHERE id=$writerId";
+        $resultWriter = mysqli_query($connection, $queryWriter);
+    
+        if (mysqli_num_rows($resultWriter) == 1)
+            $writer = mysqli_fetch_array($resultWriter);
+        else
+            $writer = "unknown";
 
     ?>
 
@@ -41,6 +52,17 @@ $new = mysqli_fetch_array($result);
                 <?php echo $title; ?> .
             </h5>
             <img class="card-img-top" src="./../../images/news/<?php echo $imageTitle; ?>" alt="new" />
+            <p class="card-text font-italic p-2">
+                Writen By : <?php echo $writer[1] . " "; ?>
+                [<?php echo $new['dateposted']; ?>]
+            </p>
+            <p class="card-text font-italic p-2">
+                Category :
+                <?php echo $category; ?>
+                <?php if ($isUrgent) echo " , Urgent"; ?>
+                <?php if ($isGlobal) echo " , Global"; ?>
+
+            </p>
             <p class="card-text p-2">
                 <?php echo $body; ?>
             </p>
