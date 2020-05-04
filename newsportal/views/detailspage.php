@@ -13,6 +13,7 @@ $result = mysqli_query($connection, $query);
 
 $updateViewsQuery = "UPDATE news SET views= views + 1 WHERE id = $id ";
 $updateResult = mysqli_query($connection, $updateViewsQuery);
+$totalDocs = mysqli_num_rows($result);
 
 $new = mysqli_fetch_array($result);
 
@@ -24,11 +25,12 @@ $new = mysqli_fetch_array($result);
 
 
 <body>
-
     <?php
     require "./partials/navbar.php";
+require "./partials/breakingnews.php";
 
-    if ($result) {
+
+    if ($totalDocs == 1) {
         $title = $new[1];
         $imageTitle = $new[4];
         $body = $new[2];
@@ -39,7 +41,7 @@ $new = mysqli_fetch_array($result);
 
         $queryWriter = "SELECT * FROM users WHERE id=$writerId";
         $resultWriter = mysqli_query($connection, $queryWriter);
-    
+
         if (mysqli_num_rows($resultWriter) == 1)
             $writer = mysqli_fetch_array($resultWriter);
         else
@@ -69,12 +71,11 @@ $new = mysqli_fetch_array($result);
             <button class="btn btn-sm btn-primary">Share with facebook</button>
         </div>
     <?php
-
+        require "./commentview.php";
     } else {
-        echo "ERROR " . mysqli_error($connection);
-    }
-    ?>
-    <?php require "./commentview.php" ?>
+        header("location:./frontpage.php");
+    } ?>
+
 </body>
 
 </html>

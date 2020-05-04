@@ -3,13 +3,13 @@
         <ul class=" carousel-inner navbar-nav mr-auto">
             <?php
 
-            $query = "SELECT * FROM news WHERE isUrgent = 1 AND published =1 ORDER BY dateposted DESC ";
-            $result = mysqli_query($connection, $query);
+            $queryBreakingNews = "SELECT * FROM news WHERE isUrgent = 1 AND published =1 ORDER BY dateposted DESC ";
+            $resultBreakingNews = mysqli_query($connection, $queryBreakingNews);
             $counter = 0;
 
-            while ($new = mysqli_fetch_array($result)) {
-                $newTitle = $new['title'];
-                $newId = $new['id'];
+            while ($breakingNew = mysqli_fetch_array($resultBreakingNews)) {
+                $newTitle = $breakingNew['title'];
+                $newId = $breakingNew['id'];
                 $counter++;
 
                 if ($counter == 1) {
