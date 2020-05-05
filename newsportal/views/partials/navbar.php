@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg" style="width: 100vw">
 	<a class="navbar-brand" href="#">
-		<img src="./../assets/images/sky-news-logo.png" alt="new" width="200px" height="50px" />
+		<img src="./../../images/sky-news-logo.png" alt="new" width="200px" height="50px" />
 	</a>
 </nav>
 <nav class="navbar second-nav row navbar-expand-lg " style="width:100vw;">
@@ -36,7 +36,7 @@
 			</li>
 		</ul>
 		<ul class="navbar-nav row">
-			<form class="form-inline" autocomplete="off" >
+			<form class="form-inline" autocomplete="off">
 				<input class="form-control rounded-0" id="search" placeholder="Search for news ..." aria-label="Search" />
 				<button class="btn my-2 my-sm-0 Search" type="submit" name="submit" value="Search">
 					<img class="search" src="./../assets/icons/pinpng.com-searchicon-png-773069.png" alt="new" width="20px" height="20px" />
