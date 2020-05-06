@@ -8,7 +8,10 @@ if (isset($_POST['query'])) {
         while ($row = mysqli_fetch_array($result)) {
 ?>
 
-            <a href='./detailspage.php?id=<?php echo $row['id']; ?>' class="list-group-item list-group-item-action border-1 text-center"><?php echo $row['title']; ?> </a>        <?php    }
+            <a href='./detailspage.php?id=<?php echo $row['id']; ?>' class="list-group-item list-group-item-action border-1 text-center" style="font-size: 12px;">
+                <?php echo $row['title']; ?>
+            </a>
+        <?php    }
     } else { ?>
         <p class="list-group-item list-group-item-action border-1 text-center"> No Record </p>
 <?php
