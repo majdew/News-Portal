@@ -25,12 +25,6 @@
                         Advertisement
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./../usersviews/addad.php">
-                        <img class="search align-middle" width="18px" src="./../../assets/icons/add.png" />
-                        Add Ads
-                    </a>
-                </li>
             <?php } ?>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>News</span>
