@@ -14,92 +14,86 @@
         <?php
         $query = "SELECT * FROM news WHERE published = 1 ORDER BY dateposted DESC LIMIT 9 ";
         $result = mysqli_query($connection, $query);
-        $new1 = mysqli_fetch_array($result);
-        $new2 = mysqli_fetch_array($result);
-        $new3 = mysqli_fetch_array($result);
-        $new4 = mysqli_fetch_array($result);
-        $new5 = mysqli_fetch_array($result);
-        $new6 = mysqli_fetch_array($result);
-        $new7 = mysqli_fetch_array($result);
-        $new8 = mysqli_fetch_array($result);
-        $new9 = mysqli_fetch_array($result);
+        for ($i = 0; $i < 9; $i++) {
+            $new[$i] = mysqli_fetch_array($result);
+        }
         ?>
         <div class="d-flex border border-danger flex-column"">
             <div class=" d-flex">
             <div class="flex-column">
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center overflow-hidden" style="width: 15rem; height: 5rem;">
-                        <a href='./detailspage.php?id=<?php echo $new2[0]; ?>'>
-                            <?php echo $new2['title']; ?>...
+                        <a href='./detailspage.php?id=<?php echo $new[1][0]; ?>'>
+                            <?php echo $new[1]['title']; ?>...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new2[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new[1][4]; ?>" alt="new" />
                 </div>
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center overflow-hidden" style="width: 15rem; height: 5rem;">
-                        <a href='./detailspage.php?id=<?php echo $new3[0]; ?>'>
-                            <?php echo $new3['title']; ?> ...
+                        <a href='./detailspage.php?id=<?php echo $new[2][0]; ?>'>
+                            <?php echo $new[2]['title']; ?> ...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new3[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new[2][4]; ?>" alt="new" />
                 </div>
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center overflow-hidden" style="width: 15rem; height: 5rem;">
-                        <a href='./detailspage.php?id=<?php echo $new4[0]; ?>'>
-                            <?php echo $new4['title']; ?>...
+                        <a href='./detailspage.php?id=<?php echo $new[3][0]; ?>'>
+                            <?php echo $new[3]['title']; ?>...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new4[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height: 5rem;" src="./../../images/news/<?php echo $new[3][4]; ?>" alt="new" />
                 </div>
                 <div class="p-2 d-flex border-bottom border-dark">
                     <p class="p-2 text-center overflow-hidden" style="width: 15rem;">
-                        <a href='./detailspage.php?id=<?php echo $new5[0]; ?>'>
-                            <?php echo $new5['title']; ?>...
+                        <a href='./detailspage.php?id=<?php echo $new[4][0]; ?>'>
+                            <?php echo $new[4]['title']; ?>...
                         </a>
                     </p>
-                    <img class="ml-auto" style="width: 5rem; height : 5rem;" src="./../../images/news/<?php echo $new5[4]; ?>" alt="new" />
+                    <img class="ml-auto" style="width: 5rem; height : 5rem;" src="./../../images/news/<?php echo $new[4][4]; ?>" alt="new" />
                 </div>
             </div>
             <div class="flex-column p-2 " style="width: 35rem;">
-                <img class="card-img-top" src="./../../images/news/<?php echo $new1[4]; ?>" alt="new" />
+                <img class="card-img-top" src="./../../images/news/<?php echo $new[0][4]; ?>" alt="new" />
                 <p class="card-text text-center overflow-hidden p-2">
-                    <a href='./detailspage.php?id=<?php echo $new1[0]; ?>'>
-                        <?php echo $new1['title']; ?> ...
+                    <a href='./detailspage.php?id=<?php echo $new[0][0]; ?>'>
+                        <?php echo $new[0]['title']; ?> ...
                     </a>
                 </p>
             </div>
 
         </div>
-        <div class="d-flex flex-row m-auto" >
+        <div class="d-flex flex-row m-auto">
             <div class="flex-column p-2" style="width: 13rem; ">
-                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new6[4]; ?>" alt="new" />
+                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new[5][4]; ?>" alt="new" />
                 <p class="card-text text-center overflow-hidden p-2">
-                    <a href='./detailspage.php?id=<?php echo $new6[0]; ?>'>
-                        <?php echo $new6['title']; ?> ...
+                    <a href='./detailspage.php?id=<?php echo $new[5][0]; ?>'>
+                        <?php echo $new[5]['title']; ?> ...
                     </a>
                 </p>
             </div>
             <div class="flex-column p-2" style="width: 13rem; ">
-                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new7[4]; ?>" alt="new" />
+                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new[6][4]; ?>" alt="new" />
                 <p class="card-text text-center overflow-hidden p-2">
-                    <a href='./detailspage.php?id=<?php echo $new7[0]; ?>'>
-                        <?php echo $new7['title']; ?> ...
+                    <a href='./detailspage.php?id=<?php echo $new[6][0]; ?>'>
+                        <?php echo $new[6]['title']; ?> ...
                     </a>
                 </p>
             </div>
             <div class="flex-column p-2" style="width: 13rem; ">
-                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new8[4]; ?>" alt="new" />
+                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new[7][4]; ?>" alt="new" />
                 <p class="card-text text-center overflow-hidden p-2">
-                    <a href='./detailspage.php?id=<?php echo $new8[0]; ?>'>
-                        <?php echo $new8['title']; ?> ...
+                    <a href='./detailspage.php?id=<?php echo $new[7][0]; ?>'>
+                        <?php echo $new[7]['title']; ?> ...
                     </a>
                 </p>
             </div>
             <div class="flex-column p-2" style="width: 13rem; ">
-                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new9[4]; ?>" alt="new" />
+                <img style="width: 13rem;" class="p-2" src="./../../images/news/<?php echo $new[8][4]; ?>" alt="new" />
                 <p class="card-text text-center overflow-hidden p-2">
-                    <a href='./detailspage.php?id=<?php echo $new9[0]; ?>'>
-                        <?php echo $new9['title']; ?> ...
+                    <a href='./detailspage.php?id=<?php echo $new[8][0]; ?>'>
+                        <?php echo $new[8]['title']; ?> ...
                     </a>
                 </p>
             </div>
